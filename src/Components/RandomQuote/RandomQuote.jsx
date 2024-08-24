@@ -12,6 +12,8 @@ export const RandomQuote = () => {
         quote: "putting in the work!!!",
         author: "Kieran"
     });
+    const [currentColor, setCurrentColor] = useState(["#4c9196"]);
+
 
     useEffect(() => {
         async function loadQuotes() {
@@ -25,6 +27,8 @@ export const RandomQuote = () => {
         }
 
         loadQuotes();  // Call the function to load quotes when the component mounts
+
+
     });  // Empty dependency array ensures this runs only once
 
     const random = () => {
@@ -32,18 +36,31 @@ export const RandomQuote = () => {
             const select = quotes[Math.floor(Math.random() * quotes.length)];
             setQuote(select);
         }
+        
     };
+
+    const changeColor = () => {
+        const color = ["#ba4949", "#4c9196", "#4d7fa2", "#3f3434"];
+        const select = color[Math.floor(Math.random() * color.length)];
+        setCurrentColor(select);
+    }
 
   return (
     
-    <div className='container'>
+    <div className='container' style={{
+        backgroundColor: currentColor
+    }}>
         <div className="quote">"{quote.quote}"</div>
         <div>
             <div className="line"></div>
             <div className="bottom">
                <div className="author">{quote.author}</div>
                <div className="icon">
-                    <img src={reload_icon} onClick={random} alt="reload" />
+                    <img src={reload_icon} onClick={event => {
+                        random();
+                        changeColor();
+                    }}
+                     alt="reload" />
                 </div> 
             </div>
         </div>
