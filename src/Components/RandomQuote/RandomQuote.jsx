@@ -5,14 +5,17 @@ import reload_icon from '../Assets/reload.jpg'
 
 
 
-export const RandomQuote = () => {
+export const RandomQuote = ({currentBackgroundColor, changeColor}) => {
 
     const [quotes, setQuotes] = useState([]);
     const [quote, setQuote] = useState({
         quote: "putting in the work!!!",
         author: "Kieran"
     });
-    const [currentColor, setCurrentColor] = useState(["#4c9196"]);
+     
+
+let colorWithOpacity = currentBackgroundColor + "80"
+
 
 
     useEffect(() => {
@@ -39,24 +42,21 @@ export const RandomQuote = () => {
         
     };
 
-    const changeColor = () => {
-        const color = ["#ba4949", "#4c9196", "#4d7fa2", "#3f3434"];
-        const select = color[Math.floor(Math.random() * color.length)];
-        setCurrentColor(select);
-    }
+    console.log(colorWithOpacity)
 
   return (
-    
-    <div className='container' style={{
-        backgroundColor: currentColor
+        <div className='container' style={{
+        color: currentBackgroundColor
     }}>
         <div className="quote">"{quote.quote}"</div>
         <div>
-            <div className="line"></div>
+            <div className="line" style={{
+        background: currentBackgroundColor
+    }}></div>
             <div className="bottom">
                <div className="author">{quote.author}</div>
                <div className="icon">
-                    <img src={reload_icon} onClick={event => {
+                    <img src={reload_icon} onClick={() => {
                         random();
                         changeColor();
                     }}
@@ -66,5 +66,8 @@ export const RandomQuote = () => {
         </div>
 
     </div>
+    
+    
+    
   )
 }
