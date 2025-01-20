@@ -7,7 +7,7 @@ function App() {
     "#38858a",
   ]);
 
-  const backgroundColor = ["#ba4949", "#38858a", "#397097", "#3f384c"];
+  // const backgroundColor = ["#ba4949", "#38858a", "#397097", "#3f384c"];
 
   const changeColor = () => {
     const color = ["#c15c5c", "#4c9196", "#4d7fa2", "#3f3434"];

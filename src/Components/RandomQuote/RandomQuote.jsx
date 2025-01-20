@@ -20,7 +20,7 @@ let colorWithOpacity = currentBackgroundColor + "80"
 
     useEffect(() => {
         async function loadQuotes() {
-            const response = await fetch('https://api.api-ninjas.com/v1/quotes?category=success', {
+            const response = await fetch('https://api.api-ninjas.com/v1/quotes', {
                 headers: {
                     'X-Api-Key': 'N2cuUR9MWu1pL85QBDXpbw==I20xpn1kHm31h6fV', // Replace with your actual API key
                 },
