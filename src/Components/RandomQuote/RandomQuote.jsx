@@ -3,10 +3,7 @@ import './RandomQuote.css';
 import reload_icon from '../Assets/reload.jpg';
 
 export const RandomQuote = ({ currentBackgroundColor, changeColor }) => {
-  const [quote, setQuote] = useState({
-    quote: "putting in the work!!!",
-    author: "Kieran",
-  });
+  const [quote, setQuote] = useState([0]);
   const initialFetchDone = useRef(false); // Track if the initial fetch is complete
 
 //   const colorWithOpacity = currentBackgroundColor + "80";
@@ -16,7 +13,7 @@ export const RandomQuote = ({ currentBackgroundColor, changeColor }) => {
     try {
       const response = await fetch('https://api.api-ninjas.com/v1/quotes', {
         headers: {
-          'X-Api-Key': 'N2cuUR9MWu1pL85QBDXpbw==I20xpn1kHm31h6fV', // Replace with your actual API key
+          'X-Api-Key': '8QzcI2IVrv0oHna/VouZdw==n1nQd4RAYLGi5KNb', // Replace with your actual API key
         },
       });
       const data = await response.json();
